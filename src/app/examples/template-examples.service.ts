@@ -1,8 +1,11 @@
-import { Compiler, Component, Inject, Injectable, ModuleWithComponentFactories, NgModule, NgModuleFactory, Type } from '@angular/core';
+import { Compiler, Inject, Injectable, ModuleWithComponentFactories, NgModuleFactory, Type } from '@angular/core';
+
 import { TEMPLATE_EXAMPLES, UncompiledTemplateExamples } from './template-examples';
+import { Component, NgModule } from '@angular/core';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { CommonModule } from '@angular/common';
 
 /** A component + template text from one of the @see exampleTemplates. */
 export class TemplateExample {
@@ -54,15 +57,17 @@ export class TemplateExamplesService {
       }
     );
 
-    const tmpModule = NgModule({
+    const examplesModule = NgModule({
       declarations: [components],
-      exports: [components],
+      exports: [...components],
       entryComponents: [components],
-      imports: [MatButtonModule, MatIconModule]
+      imports: [MatIconModule] // works
+      // BUGBUG: Adding CommonModule results in Error: Can't resolve all parameters for NgClass: (?, ?, ?, ?).
+      //imports: [MatIconModule, CommonModule]
     })(class TemplateExamplesModule {
     });
 
-    this._compiledModule = await this._compiler.compileModuleAndAllComponentsAsync(tmpModule);
+    this._compiledModule = await this._compiler.compileModuleAndAllComponentsAsync(examplesModule);
 
     // Store the ngModuleFactory in each example for easy access
     if (this._compiledModule) {

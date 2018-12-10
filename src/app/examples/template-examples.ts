@@ -15,10 +15,11 @@ export const templateExamples: UncompiledTemplateExamples =
     `<mat-icon>add</mat-icon>`,
 
   'round-icon-button':
-    `<button mat-icon-button color="primary">
-    <mat-icon >favorite</mat-icon>
-  </button>`,
+    `<button color="primary"></button>`,
 
   'rectangle-button':
-    `<button mat-raised-button color="primary">Primary</button>`
+    `<button color="primary">Primary</button>`,
+
+  // 'ng-class':
+  //   `<div [ngClass]="first second">Div with ngClass</div>`
 };
