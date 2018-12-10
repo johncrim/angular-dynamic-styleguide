@@ -1,0 +1,15 @@
+<mat-toolbar>
+  <h2>Template Examples</h2>
+</mat-toolbar>
+
+
+<section *ngFor="let example of examples?.values()">
+  <h5>{{example.id}}</h5>
+  <div class="example">
+    <ng-container *ngComponentOutlet="example.component;
+                                        ngModuleFactory: example.moduleFactory;"></ng-container>
+  </div>
+  <code class="template">
+    <pre>{{example.template}}</pre>
+  </code>
+</section>
