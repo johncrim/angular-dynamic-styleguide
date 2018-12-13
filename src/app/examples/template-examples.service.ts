@@ -5,7 +5,6 @@ import { Component, NgModule } from '@angular/core';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { CommonModule } from '@angular/common';
 
 /** A component + template text from one of the @see exampleTemplates. */
 export class TemplateExample {
@@ -61,9 +60,7 @@ export class TemplateExamplesService {
       declarations: [components],
       exports: [...components],
       entryComponents: [components],
-      imports: [MatIconModule] // works
-      // BUGBUG: Adding CommonModule results in Error: Can't resolve all parameters for NgClass: (?, ?, ?, ?).
-      //imports: [MatIconModule, CommonModule]
+      imports: [MatIconModule, MatButtonModule]
     })(class TemplateExamplesModule {
     });
 

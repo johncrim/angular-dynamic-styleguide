@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 It is a minimal example of an Angular StyleGuide containing examples that are compiled dynamically (at runtime). Dynamic compilation is used because it provides access to the Angular template source code, which is displayed in the styleguide.
 
-Currently dynamic compilation is broken when this project is run using `ng build --prod` or `ng serve --prod`.
+A key goal for this demo project was to get dynamically compiled components running with `ng build --prod` or `ng serve --prod`. Thanks to [this comment in github](https://github.com/angular/angular/issues/27584#issuecomment-446462051) I found that the key fix was to add `import 'core-js/es7/reflect';` to polyfills.ts. Even though it's not a real polyfill (it's needed on all browsers), it's required for dynamic compilation in --prod builds.
 
 ## Development server
 
