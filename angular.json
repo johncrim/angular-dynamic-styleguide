@@ -34,11 +34,13 @@
           },
           "configurations": {
             "production": {
-              "fileReplacements": [{
-                "replace": "src/environments/environment.ts",
-                "with": "src/environments/environment.prod.ts"
-              }],
-              "optimization": false,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
               "extractCss": true,
@@ -47,11 +49,13 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": false,
-              "budgets": [{
-                "type": "initial",
-                "maximumWarning": "2mb",
-                "maximumError": "5mb"
-              }]
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
             }
           }
         },

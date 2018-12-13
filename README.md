@@ -6,6 +6,13 @@ It is a minimal example of an Angular StyleGuide containing examples that are co
 
 A key goal for this demo project was to get dynamically compiled components running with `ng build --prod` or `ng serve --prod`. Thanks to [this comment in github](https://github.com/angular/angular/issues/27584#issuecomment-446462051) I found that the key fix was to add `import 'core-js/es7/reflect';` to polyfills.ts. Even though it's not a real polyfill (it's needed on all browsers), it's required for dynamic compilation in --prod builds.
 
+Note that running dynamically compiled components with `ng build --prod` also requires
+
+```json
+              "buildOptimizer": false,
+```
+in the `production` configuration in `angular.json`.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
