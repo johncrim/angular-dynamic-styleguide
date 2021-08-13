@@ -8,7 +8,17 @@ import { MatIconModule } from '@angular/material/icon';
 
 /** A component + template text from one of the @see exampleTemplates. */
 export class TemplateExample {
-  public moduleFactory?: NgModuleFactory<any>;
+
+  public set moduleFactory(f: NgModuleFactory<any>) {
+    this._moduleFactory = f;
+  }
+  public get moduleFactory(): NgModuleFactory<any> {
+    if (!this._moduleFactory) {
+      throw new Error('NgModuleFactory should have been set');
+    }
+    return this._moduleFactory;
+  }
+  private _moduleFactory?: NgModuleFactory<any>;
 
   constructor(public readonly id: string,
     public readonly template: string,
@@ -67,9 +77,10 @@ export class TemplateExamplesService {
     this._compiledModule = await this._compiler.compileModuleAndAllComponentsAsync(examplesModule);
 
     // Store the ngModuleFactory in each example for easy access
-    if (this._compiledModule) {
+    const moduleFactory = this._compiledModule?.ngModuleFactory;
+    if (!!moduleFactory) {
       examples.forEach((example: TemplateExample, id: string) => {
-        example.moduleFactory = this._compiledModule.ngModuleFactory;
+        example.moduleFactory = moduleFactory;
       });
     }
 

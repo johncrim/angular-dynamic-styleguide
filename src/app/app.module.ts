@@ -7,7 +7,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { AppComponent } from './app.component';
 import { TemplateExamplesService } from './examples/template-examples.service';
 import { TEMPLATE_EXAMPLES, templateExamples } from './examples/template-examples';
-import { RUNTIME_COMPILER_PROVIDERS } from './examples/runtime-compiler.providers';
+import { RuntimeCompilerModule } from './examples/runtime-compiler.module';
 
 @NgModule({
   declarations: [
@@ -16,12 +16,12 @@ import { RUNTIME_COMPILER_PROVIDERS } from './examples/runtime-compiler.provider
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MatToolbarModule
+    MatToolbarModule,
+    RuntimeCompilerModule
   ],
   providers: [
     { provide: TEMPLATE_EXAMPLES, useValue: templateExamples },
-    TemplateExamplesService,
-    ...RUNTIME_COMPILER_PROVIDERS
+    TemplateExamplesService
   ],
   bootstrap: [AppComponent]
 })
