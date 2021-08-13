@@ -30,7 +30,19 @@
               "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "sourceMap": {
+              "styles": true,
+              "scripts": true,
+              "vendor": true
+            },
+            "aot": true,
+            "vendorChunk": true,
+            "extractLicenses": false,
+            // IMPORTANT: "buildOptimizer": false and "optimization": false is required for dynamic examples to work
+            "buildOptimizer": false,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -40,7 +52,6 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
               "extractCss": true,
@@ -49,6 +60,7 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": false,
+              "optimization": false,
               "budgets": [
                 {
                   "type": "initial",

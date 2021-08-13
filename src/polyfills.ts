@@ -78,5 +78,5 @@ import 'zone.js/dist/zone';  // Included with Angular CLI.
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
-
-import 'core-js/es7/reflect';
+// Needed to use dynamically compiled components in AOT/prod builds: https://github.com/angular/angular/issues/27584#issuecomment-446462051
+import 'core-js/proposals/reflect-metadata';
