@@ -1,6 +1,6 @@
 # Angular Dynamic Styleguide
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.2.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli). It has been updated to Angular version 12.x.
 
 It is a minimal example of an Angular StyleGuide containing examples that are compiled dynamically (at runtime). Dynamic compilation is used because it provides access to the Angular template source code, which is displayed in the styleguide.
 
